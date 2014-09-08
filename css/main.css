@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+  background: #363636;
+  font-family: sans-serif;
+}
+h1 {
+  font-family: monospace;
+  color: #fff;
+  font-size: 24px;
+}
+p {
+  color: #ddd;
+}
