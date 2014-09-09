@@ -11,34 +11,49 @@ h1 {
 p {
   color: #ddd;
 }
-h2,
-h2 a {
-  font-size: 14px;
-  font-color: #fff;
+a, a:active {
+  color: #ddd;
   text-decoration: none;
 }
-h3,
-h3 a {
+a:hover {
+  color: #fff;
+}
+a:visited {
+  color: #ccc;
+}
+h2 {
+  font-size: 14px;
+  color: #fff;
+}
+h3 {
   font-size: 12px;
-  font-color: #ddd;
-  text-decoration: none;
+  color: #ddd;
 }
-post {
-  border: 2px single;
+.post {
+  border: 2px solid #fff;
+  background: #424242;
 }
-post p {
+.post p {
   font-size: 14px;
   font-color: #ddd;
 }
-comment p {
+.comment {
+  clear: both;
+}
+.comment p {
   font-size: 10px;
   font-color: #ccc;
 }
 p.likes {
   width: 49%;
-  float: left;
+  display: inline-block;
 }
 p.comments {
   width: 49%;
-  float: left;
+  display: inline-block;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  clear: both;
 }

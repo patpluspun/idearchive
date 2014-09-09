@@ -40,43 +40,49 @@ window.fbAsyncInit = function() {
   function parse_shit(post) {
     //console.log(post);
     var output = [];
-    output.push('<post>');
+    output.push('<section class="thread">');
+    output.push('<section class="post">');
     output.push('<h2>');
-    if (post.hasOwnProperty('icon')) {
+    /* TODO: Figure out how to get user icons, this shit ain't working. */
+    /*if (post.hasOwnProperty('icon')) {
+      console.log(post);
       output.push('<a href="https://www.facebook.com/app_scoped_user_id/' + post.from.id + '">');
       output.push('<img src="' + post.icon + '" alt="' + post.from.name + '"/>');
       output.push('</a>');
-    }
+    }*/
     output.push('<a href="https://www.facebook.com/app_scoped_user_id/' + post.from.id + '">' + post.from.name + '</a>');
     output.push('</h2>');
     output.push('<p>' + post.message + '</p>');
-    if (post.type === 'photo') {
+    if (post.type === 'photo' && post.hasOwnProperty('picture')) {
       output.push('<img src="' + post.picture + '"/>');
     }
     if (post.hasOwnProperty('likes') && post.likes.data.length > 0) {
-      output.push('<p class="likes">' + post.likes.data.length + ' like(s).</p>');
+      output.push('<p class="likes">' + post.likes.data.length + ' approves!</p>');
     }
     if (post.hasOwnProperty('comments') && post.comments.data.length > 0) {
       output.push('<p class="comments">' + post.comments.data.length + ' comment(s).</p>');
+    }
+    output.push('</section><!-- /.post -->');
+    if (post.hasOwnProperty('comments') && post.comments.data.length > 0) {
       for (var key in post.comments.data) {
         if (post.comments.data.hasOwnProperty(key)) {
           output.push(parse_meta_shit(post.comments.data[key]));
         }
       }
     }
-    output.push('</post>');
+    output.push('</section><!-- /.thread -->');
     output.push('<hr>');
     return output.join('');
   }
 
   function parse_meta_shit(comment) {
-    console.log(comment);
+    //console.log(comment);
     var output = [];
-    output.push('<comment>');
+    output.push('<section class="comment">');
     output.push('<h3><a href="https://www.facebook.com/app_scoped_user_id/' + comment.from.id + '">' + comment.from.name + '</a></h3>');
     output.push('<p>' + comment.message + '</p>');
-    output.push('<p>' + comment.like_count + ' idears like this.</p>');
-    output.push('</comment>');
+    output.push('<p>' + comment.like_count + ' approve!</p>');
+    output.push('</section><!-- /.comment -->');
     return output.join('');
   }
 };
