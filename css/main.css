@@ -11,3 +11,34 @@ h1 {
 p {
   color: #ddd;
 }
+h2,
+h2 a {
+  font-size: 14px;
+  font-color: #fff;
+  text-decoration: none;
+}
+h3,
+h3 a {
+  font-size: 12px;
+  font-color: #ddd;
+  text-decoration: none;
+}
+post {
+  border: 2px single;
+}
+post p {
+  font-size: 14px;
+  font-color: #ddd;
+}
+comment p {
+  font-size: 10px;
+  font-color: #ccc;
+}
+p.likes {
+  width: 49%;
+  float: left;
+}
+p.comments {
+  width: 49%;
+  float: left;
+}
